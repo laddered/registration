@@ -1,6 +1,6 @@
 body {
     margin-top: 5em;
-;
+    background-color: aliceblue;
 }
 
 div.container {
@@ -29,4 +29,22 @@ h1 {
     border-color: #FFFFFF;
     background-color: #21a924;
     color: #FFFFFF;
+}
+
+.styleForGood {
+    border-color: #21a924 !important;
+    background-color: #efffe9 !important;
+}
+
+.styleForBad {
+    border-color: #ed0b0b !important;
+    background-color: #ffeaed !important;
+}
+
+.btnAcc {
+    margin: 0 auto;
+    border-color: #FFFFFF;
+    background-color: aliceblue;
+    border-radius: 8px;
+    color: #3f474f;
 }

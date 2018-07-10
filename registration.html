@@ -9,6 +9,7 @@
     <!--<link href='http://bootstraptema.ru/snippets/form/2017/recaptcha/custom.css' rel='stylesheet' type='text/css'>-->
     <link href='styleReg.css' rel='stylesheet' type='text/css'>
     <script src="homekit.vanilla_tools.js"></script>
+    <script src="regFunc.js"></script>
 </head>
 <body>
 
@@ -18,14 +19,10 @@
             <h1>User registration</h1>
             <br>
 
-            <form id="contact-form" method="post" action="" role="form">
-
+            <form id="contact-form" method="post" onsubmit="signUpBtn()" role="form">
                 <p class="lead">Please enter your details to register.</p>
-
                 <div class="messages"></div>
-
                 <div class="controls">
-
                         <div class="">
                             <div class="form-group">
                                 <label for="form_login">You login *</label>
@@ -33,10 +30,11 @@
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
+
                         <div class="">
-                            <div class="form-group ">
-                                <label for="form_password">Password *</label>
-                                <input id="form_password" type="text" name="password" class="form-control" placeholder="Please enter your password *" required="required" data-error="Password is required.">
+                            <div class="form-group">
+                                <label>Password *</label> &nbsp <input  id="passHide" type="checkbox" onclick='hideClick()'/> <span>hide off</span>
+                                <input id="form_password" type="password" name="password" class="form-control" placeholder="Please enter your password *" required="required" data-error="Password is required." oninput="passwordCheck()">
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
@@ -44,7 +42,7 @@
                     <div class="">
                         <div class="form-group ">
                             <label for="form_confirmPassword">Confirm password *</label>
-                            <input id="form_confirmPassword" type="text" name="confirmPassword" class="form-control" placeholder="Confirm your password *" required="required" data-error="Confirm password is required.">
+                            <input id="form_confirmPassword" type="password" name="confirmPassword" class="form-control" placeholder="Confirm your password *" required="required" data-error="Confirm password is required." oninput="passwordCheck()">
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -82,14 +80,22 @@
 
                     <br>
                         <div class="row">
-                            <input type="submit" class="btn btnSubmit btn-send" onclick="signUpBtn()" value="Sign Up">
+                            <input type="submit" id="buttonSignUp" class="btn btnSubmit btn-send" value="Sign Up">
                         </div>
+                    <br>
+                    <div class="row">
+                        <input type="button" id="buttonAcc" class="btnAcc" value="already have an account" onclick="ff()">
+                    </div>
                     <br>
                 </div>
             </form>
         </div><!-- /.col-lg-8 col-lg-offset-2 -->
 
 </div> <!-- /.container-->
+
+<script>
+</script>
+
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <!--<script src='https://www.google.com/recaptcha/api.js'></script>-->
