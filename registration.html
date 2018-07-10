@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Регистрация пользователей</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>-->
+    <!--<link href='http://bootstraptema.ru/snippets/form/2017/recaptcha/custom.css' rel='stylesheet' type='text/css'>-->
+    <link href='styleReg.css' rel='stylesheet' type='text/css'>
+    <script src="homekit.vanilla_tools.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="row main-form">
+
+            <h1>User registration</h1>
+            <br>
+
+            <form id="contact-form" method="post" action="" role="form">
+
+                <p class="lead">Please enter your details to register.</p>
+
+                <div class="messages"></div>
+
+                <div class="controls">
+
+                        <div class="">
+                            <div class="form-group">
+                                <label for="form_login">You login *</label>
+                                <input id="form_login" type="text" name="login" class="form-control" data-minlength="6" placeholder="Please enter your login *" required="required" data-error="Login is required.">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="form-group ">
+                                <label for="form_password">Password *</label>
+                                <input id="form_password" type="text" name="password" class="form-control" placeholder="Please enter your password *" required="required" data-error="Password is required.">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+
+                    <div class="">
+                        <div class="form-group ">
+                            <label for="form_confirmPassword">Confirm password *</label>
+                            <input id="form_confirmPassword" type="text" name="confirmPassword" class="form-control" placeholder="Confirm your password *" required="required" data-error="Confirm password is required.">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+
+                        <div class="">
+                            <div class="form-group">
+                                <label for="form_email">Email *</label>
+                                <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <div class="form-group">
+                                <label for="form_age">Age</label>
+                                <input id="form_age" type="tel" name="age" class="form-control" placeholder="Please enter your age">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <div class="form-group">
+                                <label for="form_MyName">Your name</label>
+                                <input id="form_MyName" name="MyName" class="form-control" placeholder="Please enter your name">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+
+                        <!--<div class="col-md-12">-->
+                            <!--<div class="form-group">-->
+                                <!--&lt;!&ndash; Replace data-sitekey with your own one, generated at https://www.google.com/recaptcha/admin &ndash;&gt;-->
+                                <!--<div class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S"></div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                    <br>
+                        <div class="row">
+                            <input type="submit" class="btn btnSubmit btn-send" onclick="signUpBtn()" value="Sign Up">
+                        </div>
+                    <br>
+                </div>
+            </form>
+        </div><!-- /.col-lg-8 col-lg-offset-2 -->
+
+</div> <!-- /.container-->
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<!--<script src='https://www.google.com/recaptcha/api.js'></script>-->
+<!--<script src="http://bootstraptema.ru/snippets/form/2017/recaptcha/validator.js"></script>-->
+<!--<script src="http://bootstraptema.ru/snippets/form/2017/recaptcha/contact.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+ </body>
+ </html>
