@@ -2,8 +2,9 @@
 //////////////////start//////////////////
 
 signUpBtn = ()=>{
-    VT.getEl('#form_login');
-
+    if (VT.getValue('#form_login') === '') {
+        VT.addClass('#form_login', 'badS')
+    }
 
 
 
@@ -13,25 +14,24 @@ signUpBtn = ()=>{
     if (JSON.parse(localStorage.getItem("users")) === null) {localStorage.setItem("users", "[]")}
     let usersArray = JSON.parse(localStorage.getItem("users"));
     let interimObj = {};
-    getUserInfoFromForm(interimObj, ['login','password','email','age','userName']);
+    getUserInfoFromForm(interimObj, ['login','email','password','userName','age']);
     interimObj.password = interimObj.password.hashCode();
     usersArray.push(interimObj);
     let usersString = JSON.stringify(usersArray);
     localStorage.setItem("users", usersString);
 };
 
+getUserInfoFromForm = (interimObj, fields) => {
+    for ( let i = 0; i < fields.length; i++ ) {
+        interimObj[fields[i]] = VT.getValue('#form_' + fields[i]);
+    }
+};
 
 String.prototype.hashCode = function() {
     for(var ret = 0, i = 0, len = this.length; i < len; i++) {
         ret = (31 * ret + this.charCodeAt(i)) << 0;
     }
     return ret;
-};
-
-getUserInfoFromForm = (interimObj, fields) => {
-    for ( let i = 0; i < fields.length; i++ ) {
-        interimObj[fields[i]] = VT.getValue('#form_' + fields[i]);
-    }
 };
 
 passwordCheck = ()=>{
@@ -44,8 +44,8 @@ passwordCheck = ()=>{
     }
     else {
         VT.getEl('#buttonSignUp').disabled = false;
-        VT.removeClass('#form_password', 'badS'); VT.addClass('#form_password', 'goodS'); setTimeout(function() {VT.removeClass('#form_password', 'goodS')}, 3000);
-        VT.removeClass('#form_confirmPassword', 'badS'); VT.addClass('#form_confirmPassword', 'goodS'); setTimeout(function() {VT.removeClass('#form_confirmPassword', 'goodS')}, 3000);
+        VT.removeClass('#form_password', 'badS'); VT.addClass('#form_password', 'goodS'); setTimeout(function() {VT.removeClass('#form_password', 'goodS')}, 1000);
+        VT.removeClass('#form_confirmPassword', 'badS'); VT.addClass('#form_confirmPassword', 'goodS'); setTimeout(function() {VT.removeClass('#form_confirmPassword', 'goodS')}, 1000);
     }
 };
 
@@ -62,11 +62,9 @@ hideClick = ()=>{
     }
 };
 
-loginCheck = ()=>{
-
-};
-
-
+// remS = ()=>{
+//     VT.removeClass('#form_password', 'badS')
+// };
 
 
 
@@ -77,24 +75,19 @@ loginCheck = ()=>{
 
 
 
-
-
-
-
-
-
-
-f = ()=>{
-};
-
-var ck_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-
-var email = document.getElementById("mail");
-
-email.addEventListener("input", function (event) {
-    if (email.validity.typeMismatch) {
-        email.setCustomValidity("I expect an e-mail, darling!");
-    } else {
-        email.setCustomValidity("");
-    }
-});
+//
+//
+// f = ()=>{
+// };
+//
+// var ck_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+//
+// var email = document.getElementById("mail");
+//
+// email.addEventListener("input", function (event) {
+//     if (email.validity.typeMismatch) {
+//         email.setCustomValidity("I expect an e-mail, darling!");
+//     } else {
+//         email.setCustomValidity("");
+//     }
+// });
