@@ -2,15 +2,6 @@
 //////////////////start//////////////////
 
 signUpBtn = ()=>{
-    if (VT.getValue('#form_login') === '') {
-        VT.addClass('#form_login', 'badS')
-    }
-
-
-
-
-
-
     if (JSON.parse(localStorage.getItem("users")) === null) {localStorage.setItem("users", "[]")}
     let usersArray = JSON.parse(localStorage.getItem("users"));
     let interimObj = {};
@@ -34,60 +25,72 @@ String.prototype.hashCode = function() {
     return ret;
 };
 
-passwordCheck = ()=>{
-    let line1 = VT.getValue('#form_password');
-    let line2 = VT.getValue('#form_confirmPassword');
+passwordCheck = ( first, second, needToBloc)=>{
+    let line1 = VT.getValue(first);
+    let line2 = VT.getValue(second);
     if ( line1 !== line2 ) {
-        VT.getEl('#buttonSignUp').disabled = true;
-        VT.removeClass('#form_password', 'goodS'); VT.addClass('#form_password', 'badS');
-        VT.removeClass('#form_confirmPassword', 'goodS'); VT.addClass('#form_confirmPassword', 'badS');
+        VT.getEl(needToBloc).disabled = true;
+        VT.removeClass(first, 'goodS'); VT.addClass(first, 'badS');
+        VT.removeClass(second, 'goodS'); VT.addClass(second, 'badS');
     }
     else {
-        VT.getEl('#buttonSignUp').disabled = false;
-        VT.removeClass('#form_password', 'badS'); VT.addClass('#form_password', 'goodS'); setTimeout(function() {VT.removeClass('#form_password', 'goodS')}, 1000);
-        VT.removeClass('#form_confirmPassword', 'badS'); VT.addClass('#form_confirmPassword', 'goodS'); setTimeout(function() {VT.removeClass('#form_confirmPassword', 'goodS')}, 1000);
+        VT.getEl(needToBloc).disabled = false;
+        VT.removeClass(first, 'badS'); VT.addClass(first, 'goodS'); setTimeout(function() {VT.removeClass(first, 'goodS')}, 1000);
+        VT.removeClass(second, 'badS'); VT.addClass(second, 'goodS'); setTimeout(function() {VT.removeClass(second, 'goodS')}, 1000);
     }
 };
 
-
-hideClick = ()=>{
-    let c = VT.getEl('#passHide');
-    if ( c.checked ) {
-        VT.getEl('#form_password').type = 'text';
-        VT.getEl('#form_confirmPassword').type = 'text';
-    }
-    else {
-        VT.getEl('#form_password').type = 'password';
-        VT.getEl('#form_confirmPassword').type = 'password';
-    }
-};
-
-// remS = ()=>{
-//     VT.removeClass('#form_password', 'badS')
-// };
-
-
-
-
-
-
-
-
-
-
-//
-//
-// f = ()=>{
-// };
-//
-// var ck_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-//
-// var email = document.getElementById("mail");
-//
-// email.addEventListener("input", function (event) {
-//     if (email.validity.typeMismatch) {
-//         email.setCustomValidity("I expect an e-mail, darling!");
-//     } else {
-//         email.setCustomValidity("");
+// hideClick = ()=>{
+//     let c = VT.getEl('#passHide');
+//     if ( c.checked ) {
+//         VT.getEl('#form_password').type = 'text';
+//         VT.getEl('#form_confirmPassword').type = 'text';
 //     }
-// });
+//     else {
+//         VT.getEl('#form_password').type = 'password';
+//         VT.getEl('#form_confirmPassword').type = 'password';
+//     }
+// };
+
+signInBtn = ()=>{
+    if (JSON.parse(localStorage.getItem("users")) === null) {localStorage.setItem("users", "[]")}
+    let usersArray = JSON.parse(localStorage.getItem("users"));
+    console.log(usersArray);
+    let searchLogin = VT.getValue('#form_loginAut');
+    let searchPassword = VT.getValue('#form_passwordAut').hashCode();
+    console.log(usersArray[0].login);
+    for ( let i = 0; i < usersArray.length; i++ ) {
+        if ( searchLogin === usersArray[i].login ) {
+            if ( searchPassword === usersArray[i].password ) {
+                VT.removeClass('#form_passwordAut', 'badS');
+                VT.getEl('#passwordError').style.display = 'none';
+                return window.location.href = 'prifileEdit.html';
+            }
+            else {
+                VT.addClass('#form_passwordAut', 'badS');
+                VT.getEl('#passwordError').style.display = 'block';
+                return;
+            }
+        }
+    }
+    VT.addClass('#form_loginAut', 'badS');
+    VT.getEl('#loginError').style.display = 'block';
+};
+
+
+remB = ()=>{
+    VT.removeClass('#form_passwordAut', 'badS');
+    VT.getEl('#passwordError').style.display = 'none';
+    VT.removeClass('#form_loginAut', 'badS');
+    VT.getEl('#loginError').style.display = 'none';
+};
+
+openFormOfAut = ()=>{
+    VT.getEl('#divOfReg').style.display = 'none';
+    setTimeout(function(){VT.getEl('#divOfAut').style.display = 'block'}, 1000);
+};
+
+openFormOfReg = ()=>{
+    VT.getEl('#divOfAut').style.display = 'none';
+    setTimeout(function(){VT.getEl('#divOfReg').style.display = 'block'}, 1000);
+};

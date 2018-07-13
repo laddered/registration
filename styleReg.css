@@ -1,64 +1,98 @@
 body {
     margin-top: 5em;
-    background-color: aliceblue;
+    background-color: #1b1c26;
 }
 
-div.container {
+input {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
 
+input[type='text']::-webkit-input-placeholder , input[type='password']::-webkit-input-placeholder , input[type='number']::-webkit-input-placeholder {
+    color: #FFFFFF;
+}
+
+.iconLogo {
+    text-align: center;
+}
+
+h2 {
+    font-family: Arial, sans-serif;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+i {
+    size: 200px;
+}
+
+.form-control , .form-control:focus , input[type='password']{
+    border-radius: 2px;
+    border-color: rgba(255, 255, 255, 0.56);
+    background-color: rgba(0, 0, 0, 0);
+    color: #FFFFFF;
+}
+
+.form-control:focus{
+    box-shadow: 0px 0px 5px 1px rgb(255, 255, 255);;
 }
 
 .main-form{
+    position: relative;
     margin-top: 30px;
     margin: 0 auto;
     max-width: 400px;
     padding: 10px 40px;
-    background:#009edf;
+    background: #2c364f;
     color: #FFF;
     text-shadow: none;
-    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
-    border-radius: 8px;
-
+    border-radius: 2px;
 }
-
-h1 {
-    margin-left: 10px;
-}
-
 
 .btnSubmit {
     margin: 0 auto;;
-    padding: 10px 40px;
-    border-color: #FFFFFF;
-    background-color: #21a924;
+    padding: 6px 12px;
+    border: none;
+    background-color: #fc4d8a;
     color: #FFFFFF;
+    border-radius: 2px;
+    width: 100%;
 }
 
-.goodS {
+.btnSubmit:focus {
+    box-shadow: 0px 0px 5px 1px rgb(254, 76, 137);
+}
+
+.goodS , goodS:focus {
     border-color: #21a924 !important;
-    background-color: #efffe9 !important;
+    background-color: rgba(0, 255, 28, 0.14) !important;
+    box-shadow: 0px 0px 5px 5px rgba(119, 255, 152, 0.12);
 }
 
 .badS {
     border-color: #ed0b0b !important;
-    background-color: #ffeaed !important;
+    background-color: rgba(255, 1, 0, 0.07) !important;
+    box-shadow: 0px 0px 5px 5px rgba(252, 2, 10, 0.5);
+
 }
 
 .btnAcc {
     margin: 0 auto;
-    border-color: #FFFFFF;
-    background-color: aliceblue;
-    border-radius: 8px;
-    color: #3f474f;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    color: #FFFFFF;
 }
 
-.passwordGroup {
-    background-color: #0086c0;
-    padding: 1px 1px;
-    border-radius: 8px;
-    margin-bottom: 5px;
+#divOfReg {
+    display: none;
 }
 
-.passField {
-    margin-left: 5px;
-    margin-right: 5px;
+.errorBlock {
+    border: #ed0b0b;
+    border-radius: 2px;
+    background-color: rgba(255, 1, 0, 0.36);
+    color: #FFFFFF;
+    padding-left: 5px;
+    margin-top: 5px;
+    display: none;
 }
