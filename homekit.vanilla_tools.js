@@ -245,12 +245,12 @@
             el.innerHTML += html;
         }
 
-        function send(method, url, params, ecb, scb) {
+        function send(method, url, params, ecb, scb, async) {
             if (!method || !url) ecb({error: "no params"});
             params = params ? JSON.stringify(params) : null;
             method = method.toUpperCase();
 
-            if (method == "GET" && params)
+            if (method === "GET" && params)
                 if (url.indexOf('?') > -1)
                     url += "&" + obj_to_query_str(params);
                 else
@@ -259,7 +259,7 @@
             var xhr = new XMLHttpRequest();
 
 
-            xhr.open(method, url, true);
+            xhr.open(method, url, async); //the third parameter is responsible for async
             xhr.setRequestHeader('Accept', 'application/json, text/plain, */*');
             xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
 
@@ -277,6 +277,15 @@
                 }
             };
             xhr.send(params);
+        }
+
+        function obj_to_query_str(obj) {
+            let str = [];
+            for (let p in obj)
+                if (obj.hasOwnProperty(p)) {
+                    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                }
+            return str.join("&");
         }
 
         function copy(item) {
