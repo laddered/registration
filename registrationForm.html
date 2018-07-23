@@ -1,3 +1,4 @@
+<div class="container" id="mainContainer">
 <div class="main-form" id="divOfReg">
     <form id="registration-form" onsubmit="signUpBtn(); return false;" role="form">
         <h2 align="center">Sign up form</h2>
@@ -59,8 +60,9 @@
         </div>
         <br>
         <div class="row">
-            <input type="button" id="buttonAcc" class="btnAcc" value="Already have an account!" onclick="openForm('authorizationForm.html', true)">
+            <input type="button" id="buttonAcc" class="btnAcc" value="Already have an account!" onclick="loadFile('authorizationForm.html','#adding', true)">
         </div>
         <br>
     </form>
+</div>
 </div>
